@@ -1,0 +1,191 @@
+# 🛒 Sistema de Compras em Python
+
+Sistema de caixa virtual em Python
+
+---
+# 📌 O que é esse sistema?
+
+Nosso sistema é um caixa virtual simples e completo.
+Assim como uma operadora de caixa que passa o código de barras,
+aqui você digita o nome do produto, o preço e a quantidade —
+tudo pelo computador, de forma prática e rápida.
+
+ Se a compra passar de R$ 100,00, o sistema aplica
+automaticamente um desconto de 10% no total.
+Como uma operadora de caixa, porém virtual.
+
+---
+Requisitos
+
+- Computador (o sistema de janela/desktop não roda em celular)
+- Windows (Utilizando o comando python)
+- Linux e macOS (Utilizando o comando python3)
+- Celular ou tablet com sistema IOS ou Android (para a versão Web Mobile)
+- Biblioteca customtkinter instalada (para o Mini PDV com interface gráfica)
+- Bibliotecas streamlit e gTTS instaladas (para a versão App Mobile)
+
+# Para a versão Mini PDV com Interface Gráfica (Desktop)
+pip install customtkinter
+
+# Para a versão App Mobile (Web)
+pip install streamlit gTTS
+---
+
+ Versões do Sistema
+
+ Versão 1 — Sistema de Compras no Terminal
+
+Versão simples que roda direto no terminal. O operador digita
+os dados pelo teclado e o resultado aparece como texto.
+
+Como usar:
+
+Passo 1 — Digite o produto
+Assim como uma operadora passava o código de barras, aqui você
+digita o nome do produto no sistema.
+
+Passo 2 — Informe a quantidade
+Depois de digitar o produto, o sistema pergunta quantas unidades
+você quer adicionar.
+
+Passo 3 — Continue ou finalize
+Você pode continuar adicionando mais produtos à vontade.
+Quando terminar, o sistema soma tudo e aplica o desconto
+de 10% automaticamente se o total passar de R$ 100,00.
+
+Exemplo de uso:
+
+```
+Digite o nome do produto: Arroz
+Digite o preço do produto: R$ 5.00
+Digite a quantidade de 'Arroz': 3
+Deseja adicionar mais itens? (s/n): n
+
+--- RESUMO DA COMPRA ---
+Total sem desconto: R$ 15.00
+Nenhum desconto aplicado.
+Total a pagar: R$ 15.00
+```
+
+---
+
+ Versão 2 — Mini PDV com Interface Gráfica
+
+Versão avançada com janela gráfica em modo escuro (Dark Mode),
+botões coloridos e geração de cupom fiscal na tela —
+igual ao caixa de um mercado de verdade.
+
+Como usar:
+
+1. Preencha os campos: Nome do Produto, Preço Unitário e Quantidade
+2. Clique em **Adicionar Item** para lançar o produto no carrinho
+3. Repita para cada produto da compra
+4. Clique em **Emitir Nota Fiscal** para fechar a venda e gerar o cupom
+
+Exemplo de cupom gerado:
+
+```
+=============================================
+           NOTA FISCAL DE VENDA
+=============================================
+ ITEM               QTD   PRECO     TOTAL
+---------------------------------------------
+ Arroz               3      5.00     15.00
+ Feijão              2      8.00     16.00
+---------------------------------------------
+ Subtotal Bruto:               R$     31.00
+ Desconto Aplicado (10%):      R$      0.00
+---------------------------------------------
+ TOTAL A PAGAR:                R$     31.00
+=============================================
+        OBRIGADO PELA PREFERÊNCIA!
+=============================================
+```
+
+---
+
+### Versão 3 — Web Mobile (Nuvem) :mobile_phone: `NOVO`
+
+Versão portátil desenvolvida com foco em mobilidade e acessibilidade web, permitindo que o sistema seja operado diretamente de smartphones ou tablets através de um link público em nuvem.
+
+* **Link do Aplicativo no Ar:** [Acessar Sistema de Compras Web](https://sistema--compras-python-jqjtmofziwtr6g4jfhdpfx.streamlit.app/)
+
+Como usar:
+1. Acesse o link público pelo navegador do celular ou computador.
+2. Utilize a interface simplificada para registrar os produtos e quantidades.
+3. O sistema calcula os subtotais e exibe o fechamento da compra em tempo real de forma responsiva.
+
+---
+
+### Versão 3 — Web Mobile (Nuvem) 📱 *NOVO*
+
+Versão portátil desenvolvida com foco em mobilidade e acessibilidade web, permitindo que o sistema seja operado diretamente de smartphones ou tablets através de um link público em nuvem.
+
+* **🔗 Link de Acesso pelo Celular:** [Clique aqui para abrir o sistema](https://sistema--compras-python-jqjtmofziwtr6g4jfhdpfx.streamlit.app/)
+
+Como usar:
+1. Acesse o link público pelo navegador do celular ou computador.
+2. Utilize a interface simplificada para registrar os produtos e quantidades.
+3. O sistema calcula os subtotais e exibe o fechamento da compra em tempo real de forma responsiva.
+
+---
+
+ Funcionalidades
+
+- Registrar produtos com nome, preço e quantidade
+- Permitir adicionar vários itens na mesma compra
+- Calcular o total automaticamente
+- Aplicar desconto de 10% para compras acima de R$ 100,00
+- Exibir resumo final da compra
+- Interface gráfica moderna com cupom fiscal formatado (Versão 2)
+- Validação de dados — protege contra erros de digitação
+- Reset automático do caixa após emissão da nota
+
+  Como o sistema funciona por dentro
+
+ Bibliotecas utilizadas
+
+- *customtkinter*: responsável pela janela gráfica, botões,
+  campos de texto e o modo escuro (Dark Mode)
+
+ Principais funções
+
+| Função | O que faz |
+|---|---|
+| `__init__` | Desenha toda a janela e os elementos visuais na tela |
+| `adicionar_item` | Captura os dados digitados, calcula o subtotal e adiciona ao carrinho |
+| `emitir_nota_fiscal` | Aplica o desconto, gera o cupom formatado e reseta o caixa |
+
+Regra de negócio
+
+Se o total da compra ultrapassar R$ 100,00, o sistema aplica
+automaticamente 10% de desconto sobre o valor total.
+
+♿ Acessibilidade e Evolução do Sistema (Novas Implementações)
+
+Como parte da evolução do sistema e do nosso compromisso com a responsabilidade social e governança (padrões de acessibilidade), o Mini PDV recebeu atualizações importantes de infraestrutura para permitir maior inclusão, agilidade e robustez no uso:
+
+* **Interface Não-Bloqueante (Multithreading):** Implementação da biblioteca `threading` do Python para criar linhas de execução assíncronas em segundo plano. Isso impede que o motor de voz trave ou congele o fluxo visual da janela do CustomTkinter durante a operação do sistema.
+* **Síntese de Voz Nativa (`pyttsx3`):** Integração de um motor de áudio que realiza o feedback falado em tempo real das operações centrais (quantidade e nome do produto adicionado, alertas de dados inválidos e resumo do fechamento do caixa).
+* **Tratamento de Fonemas para Moedas:** Desenvolvimento de algoritmo interno para conversão dinâmica de dados numéricos estruturados (`float` com ponto) para strings amigáveis com vírgulas, forçando o sintetizador de voz a pronunciar os valores monetários por extenso corretamente (ex: lendo "duzentos e dezesseis reais" em vez de dígitos isolados).
+* **Navegação Otimizada por Atalhos:** Mapeamento do teclado através de bindings de eventos para agilizar as funções do operador de forma híbrida:
+  * `Tecla Enter (<Return>)`: Adiciona e computa o produto automaticamente a partir de qualquer campo de texto.
+  * `Tecla Esc (<Escape>)`: Aciona o comando de limpar e resetar o estado do caixa.
+* **Sincronismo de Interface (`update_idletasks`):** Implementação de controle de prioridade que força a interface gráfica a renderizar o cupom fiscal na tela antes de disparar o áudio, eliminando gargalos de processamento entre o Python e o sistema operacional.
+* **Botão de Reset Seguro (Limpar Tela):** Inclusão de um controle manual para limpeza imediata de buffers de memória, esvaziamento das listas de produtos e reinicialização dos campos para uma nova venda.
+
+
+## 👥 Estrutura da Equipe e Engenharia Colaborativa
+
+O projeto foi desenvolvido em formato de Startup (GMD) através do Discord, simulando um fluxo real de engenharia de software no mercado de trabalho:
+
+* **Derli Joaquim de Souza (Desenvolvedor da Inteligência de Negócio)** 
+  * Responsável pela criação da lógica matemática inicial em terminal, estruturando o algoritmo de soma contínua e a regra de negócio principal para aplicação automatizada do desconto de 10%.
+* **Maiara Souza de Castro (Engenheira de Software e Interface)** 
+  * Responsável pela refatoração e evolução do sistema, realizando a migração completa do terminal para uma Interface Gráfica Avançada (GUI) com CustomTkinter, arquitetura orientada a objetos (classes), segurança e tratamento de dados (`try/except`) e estilização da nota fiscal.
+* **Gabriela Silva (Gerência de Configuração e QA)**
+  * Responsável pela infraestrutura do repositório original no GitHub, gerenciamento de acessos da equipe e testes de qualidade do software.
+
+👩‍💻 Desenvolvido por alunos da Escola da Nuvem
+
+ Atualizando papéis da equipe no README.

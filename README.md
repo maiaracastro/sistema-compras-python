@@ -187,5 +187,3 @@ O projeto foi desenvolvido em formato de Startup (GMD) através do Discord, simu
   * Responsável pela infraestrutura do repositório original no GitHub, gerenciamento de acessos da equipe e testes de qualidade do software.
 
 👩‍💻 Desenvolvido por alunos da Escola da Nuvem
-
- Atualizando papéis da equipe no README.
